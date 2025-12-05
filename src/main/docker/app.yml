@@ -10,7 +10,7 @@ services:
       - 8081:8080
   devops1-mysql:
     extends:
-    file: mysql.yml
-    service: devops1-mysql
+      file: mysql.yml
+      service: devops1-mysql
     
 
