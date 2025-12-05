@@ -13,6 +13,17 @@ node {
 			} 			
 		}
 	}
+	stage('Quality check') {
+		withSonarQubeEnv('Sonar') {
+			withMaven(maven: 'maven')  {
+				if(isUnix()) {
+					sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=org.springdoc:spring-boot-webmvc-slim" 
+				} else { 
+					bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=org.springdoc:spring-boot-webmvc-slim" 
+				} 			
+			}
+		}
+	}
 	stage('backend tests') {
 		withMaven(maven: 'maven') {
 			if(isUnix()) {
