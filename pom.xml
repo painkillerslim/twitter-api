@@ -90,7 +90,7 @@
 					</from>
 					<to>
 						<image>
-							registry.hub.docker.com/painkillerslim/devops-repo
+							registry.hub.docker.com/slimbasti/devops-repo
 						</image>
 					</to>
 					<container>
